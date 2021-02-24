@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ChallengesContext } from '../../contexts/ChallengeContext';
 
 import {
   Container,
@@ -9,15 +10,24 @@ import {
 } from './styles';
 
 function ExperienceBar() {
+  const { currentExperience, experienceToNextLevel } = useContext(
+    ChallengesContext
+  );
+
+  const percentToNextLevel =
+    Math.round(currentExperience * 100) / experienceToNextLevel;
+
   return (
     <Container>
       <ProgressCount>0 xp</ProgressCount>
       <ProgressBarContainer>
-        <ProgressBar style={{ width: '50%' }} />
+        <ProgressBar style={{ width: `${percentToNextLevel}%` }} />
 
-        <CurrentExperience style={{ left: '50%' }}>300 xp</CurrentExperience>
+        <CurrentExperience style={{ left: `${percentToNextLevel}%` }}>
+          {currentExperience} xp
+        </CurrentExperience>
       </ProgressBarContainer>
-      <ProgressCount>600 xp</ProgressCount>
+      <ProgressCount>{experienceToNextLevel} xp</ProgressCount>
     </Container>
   );
 }
