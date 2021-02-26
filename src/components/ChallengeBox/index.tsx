@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { ChallengesContext } from '../../contexts/ChallengeContext';
+import { ChallengesContext } from '../../contexts/ChallengesContext';
 import { CountdownContext } from '../../contexts/CountdownContext';
 
 import { Container, ChallengeNotActive, ChallengeActive } from './styles';
