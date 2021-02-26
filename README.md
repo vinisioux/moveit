@@ -1,34 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+<h1 align="center">
+  <a href="https://github.com/vinisioux/moveit">
+    <img src=".github/docs/images/logo-full.svg" alt="Move.it" width="400" />
+  </a>
+</h1>
+<p align="center">
+   <img src=".github/docs/images/image1.png" width="400" style="margin-right: 10px; margin-bottom: 5rem"/>
+   <img src=".github/docs/images/image2.png" width="400"/>
+   <img src=".github/docs/images/image3.png" width="400"/>
+</p>
 
-First, run the development server:
+  <a href="http://github.com/vinisioux">
+	  <img src="https://img.shields.io/badge/author-Vinicius%20Henrique-a060f2" alt="Author Vinicius Henrique" />
+  </a>  
+  
+  <img alt="Last Commit" src="https://img.shields.io/github/last-commit/vinisioux/moveit?color=a060f2">
+  
+  <img src="https://img.shields.io/github/languages/count/vinisioux/moveit?color=a060f2" alt="languages" />
+
+---
+### :rocket: Technologies
+This project is being developed using the following technologies:
+- [TypeScript](https://www.typescriptlang.org/)
+- [ReactJS](https://reactjs.org)
+- [Styled Components](https://styled-components.com/)
+---
+
+### :dart: How To Run
+To clone and run this application, you'll need [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/) + [Yarn](https://yarnpkg.com/) installed on your computer. From your command line:
 
 ```bash
-npm run dev
-# or
-yarn dev
+# Clone this repository
+$ git clone https://github.com/vinisioux/moveit
+
+# Go into the repository
+$ cd moveit/
+
+# Install dependencies
+$ yarn install
+
+# Start the server
+$ yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Made by [Vinicius Henrique](https://github.com/vinisioux) 🚀
