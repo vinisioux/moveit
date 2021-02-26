@@ -11,10 +11,10 @@
 </p>
 
   <a href="http://github.com/vinisioux">
-	  <img src="https://img.shields.io/badge/author-Vinicius%20Henrique-a060f2" alt="Author Vinicius Henrique" />
+	<img src="https://img.shields.io/badge/author-Vinicius%20Henrique-a060f2" alt="Author Vinicius Henrique" />
   </a>  
   
-  <img alt="Last Commit" src="https://img.shields.io/github/last-commit/vinisioux/moveit?color=a060f2">
+  <img alt="Last Commit" src="https://img.shields.io/github/last-commit/vinisioux/moveit?color=a060f2" />
   
   <img src="https://img.shields.io/github/languages/count/vinisioux/moveit?color=a060f2" alt="languages" />
 
