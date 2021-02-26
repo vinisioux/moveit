@@ -18,7 +18,3 @@ export const Container = styled.div`
     align-content: center;
   }
 `;
-
-// export const LeftContainer = styled.div`
-
-// `;
