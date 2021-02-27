@@ -37,13 +37,13 @@ export function Countdown() {
           {isActive ? (
             <CountdownButton
               isActive={isActive}
-              type='button'
+              type="button"
               onClick={resetCountdown}
             >
               Abandonar ciclo
             </CountdownButton>
           ) : (
-            <CountdownButton type='button' onClick={startCountdown}>
+            <CountdownButton type="button" onClick={startCountdown}>
               Iniciar um ciclo
             </CountdownButton>
           )}

@@ -1,4 +1,10 @@
-import { createContext, ReactNode, useEffect, useState } from 'react';
+import {
+  createContext,
+  ReactNode,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react';
 import challenges from '../../challenges.json';
 import Cookies from 'js-cookie';
 import { LevelUpModal } from '../components/LevelUpModal';
@@ -37,10 +43,10 @@ export function ChallengesProvider({
 }: ChallengesProviderProps) {
   const [level, setLevel] = useState(rest.level ?? 1);
   const [currentExperience, setCurrentExperience] = useState(
-    rest.currentExperience ?? 0
+    rest.currentExperience ?? 0,
   );
   const [challengesCompleted, setChallengesCompleted] = useState(
-    rest.challengesCompleted ?? 0
+    rest.challengesCompleted ?? 0,
   );
 
   const [activeChallenge, setActiveChallenge] = useState(null);
@@ -58,16 +64,16 @@ export function ChallengesProvider({
     Cookies.set('challengesCompleted', String(challengesCompleted));
   }, [level, currentExperience, challengesCompleted]);
 
-  function levelUp() {
+  const levelUp = useCallback(() => {
     setLevel(level + 1);
     setIsLevelUpModalOpen(true);
-  }
+  }, [level, isLevelUpModalOpen]);
 
-  function closeLevelUpModal() {
+  const closeLevelUpModal = useCallback(() => {
     setIsLevelUpModalOpen(false);
-  }
+  }, [isLevelUpModalOpen]);
 
-  function startNewChallenge() {
+  const startNewChallenge = useCallback(() => {
     const randomChallengeIndex = Math.floor(Math.random() * challenges.length);
     const challenge = challenges[randomChallengeIndex];
 
@@ -80,13 +86,13 @@ export function ChallengesProvider({
     }
 
     setActiveChallenge(challenge);
-  }
+  }, [activeChallenge]);
 
-  function resetChallenge() {
+  const resetChallenge = useCallback(() => {
     setActiveChallenge(null);
-  }
+  }, [activeChallenge]);
 
-  function completeChallenge() {
+  const completeChallenge = useCallback(() => {
     if (!activeChallenge) {
       return;
     }
@@ -104,7 +110,7 @@ export function ChallengesProvider({
     setCurrentExperience(finalExperience);
     setActiveChallenge(null);
     setChallengesCompleted(challengesCompleted + 1);
-  }
+  }, [currentExperience, activeChallenge, challengesCompleted]);
 
   return (
     <ChallengesContext.Provider

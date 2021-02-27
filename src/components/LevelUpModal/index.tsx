@@ -5,6 +5,7 @@ import { Overlay, Container } from './styles';
 
 function LevelUpModal() {
   const { level, closeLevelUpModal } = useContext(ChallengesContext);
+
   return (
     <Overlay>
       <Container>
@@ -12,8 +13,8 @@ function LevelUpModal() {
         <strong>Parabéns</strong>
         <p>Você alcançou um novo level.</p>
 
-        <button type='button' onClick={closeLevelUpModal}>
-          <img src='/icons/close.svg' alt='Fechar modal' />
+        <button type="button" onClick={closeLevelUpModal}>
+          <img src="/icons/close.svg" alt="Fechar modal" />
         </button>
       </Container>
     </Overlay>
