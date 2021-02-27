@@ -5,10 +5,9 @@ import {
   useEffect,
   useState,
 } from 'react';
-import { light, dark } from '../styles/themes';
 import { ThemeProvider, DefaultTheme } from 'styled-components';
 import Cookies from 'js-cookie';
-import { GetServerSideProps } from 'next';
+import { light, dark } from '../styles/themes';
 
 interface ThemeContextData {
   theme: DefaultTheme;

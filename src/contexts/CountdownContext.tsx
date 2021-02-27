@@ -45,18 +45,18 @@ export function CountdownProvider({ children }: ChallengesProviderProps) {
       setIsActive(false);
       startNewChallenge();
     }
-  }, [isActive, time]);
+  }, [isActive, time, startNewChallenge]);
 
   const startCountdown = useCallback(() => {
     setIsActive(true);
-  }, [isActive]);
+  }, []);
 
   const resetCountdown = useCallback(() => {
     clearTimeout(countdownTimeout);
     setIsActive(false);
     setHasFinished(false);
     setTime(0.1 * 60);
-  }, [isActive, hasFinished, time]);
+  }, []);
 
   return (
     <CountdownContext.Provider

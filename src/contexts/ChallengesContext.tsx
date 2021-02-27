@@ -67,11 +67,11 @@ export function ChallengesProvider({
   const levelUp = useCallback(() => {
     setLevel(level + 1);
     setIsLevelUpModalOpen(true);
-  }, [level, isLevelUpModalOpen]);
+  }, [level]);
 
   const closeLevelUpModal = useCallback(() => {
     setIsLevelUpModalOpen(false);
-  }, [isLevelUpModalOpen]);
+  }, []);
 
   const startNewChallenge = useCallback(() => {
     const randomChallengeIndex = Math.floor(Math.random() * challenges.length);
@@ -86,11 +86,11 @@ export function ChallengesProvider({
     }
 
     setActiveChallenge(challenge);
-  }, [activeChallenge]);
+  }, []);
 
   const resetChallenge = useCallback(() => {
     setActiveChallenge(null);
-  }, [activeChallenge]);
+  }, []);
 
   const completeChallenge = useCallback(() => {
     if (!activeChallenge) {
@@ -110,7 +110,13 @@ export function ChallengesProvider({
     setCurrentExperience(finalExperience);
     setActiveChallenge(null);
     setChallengesCompleted(challengesCompleted + 1);
-  }, [currentExperience, activeChallenge, challengesCompleted]);
+  }, [
+    currentExperience,
+    activeChallenge,
+    challengesCompleted,
+    experienceToNextLevel,
+    levelUp,
+  ]);
 
   return (
     <ChallengesContext.Provider

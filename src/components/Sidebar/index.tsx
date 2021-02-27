@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 import Switch from 'react-switch';
 import { FiHome, FiAward } from 'react-icons/fi';
 
-import { ThemeContext } from '../../contexts/ThemeContext';
 import { ThemeContext as StyledThemeContext } from 'styled-components';
+import { ThemeContext } from '../../contexts/ThemeContext';
 
 import { Container } from './styles';
 
@@ -13,7 +13,7 @@ function Sidebar() {
 
   return (
     <Container>
-      <img src='icons/logo.svg' alt='Move.it' />
+      <img src="icons/logo.svg" alt="Move.it" />
 
       <div>
         <button>
@@ -32,7 +32,9 @@ function Sidebar() {
         height={10}
         width={40}
         offColor={colors.title}
+        offHandleColor={colors.primary}
         onColor={colors.grayLine}
+        onHandleColor={colors.primary}
       />
     </Container>
   );
