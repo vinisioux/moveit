@@ -20,6 +20,7 @@ export const GlobalStyle = createGlobalStyle`
     --blue: ${(props) => props.theme.colors.blue};
     --blue-dark: ${(props) => props.theme.colors.blueDark};
     --blue-twitter: ${(props) => props.theme.colors.blueTwitter};
+    --primary: ${(props) => props.theme.colors.primary};
   }
 
   @media(max-width: 1080px) {

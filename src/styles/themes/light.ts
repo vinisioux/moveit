@@ -13,5 +13,6 @@ export const light = {
     blue: '#5965e0',
     blueDark: '#4953b8',
     blueTwitter: '#2aa9e0',
+    primary: '#fff',
   },
 };

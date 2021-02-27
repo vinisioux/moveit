@@ -2,7 +2,7 @@ export const dark = {
   title: 'dark',
 
   colors: {
-    white: '#464649',
+    white: '#fff',
     background: '#1F1F23',
     grayLine: '#dcdde0',
     text: '#dedede',
@@ -13,5 +13,6 @@ export const dark = {
     blue: '#5965e0',
     blueDark: '#4953b8',
     blueTwitter: '#2aa9e0',
+    primary: '#464649',
   },
 };

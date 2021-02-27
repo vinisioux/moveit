@@ -14,7 +14,7 @@ export const Container = styled.div`
     align-items: center;
     justify-content: space-evenly;
 
-    background: var(--white);
+    background: var(--primary);
     box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
     border-radius: 5px;
     font-size: 8.5rem;
@@ -53,7 +53,7 @@ export const CountdownButton2 = styled.button`
   border-radius: 5px;
 
   background: var(--blue);
-  color: var(--white);
+  color: var(--primary);
   font-size: 1.25rem;
   font-weight: 600;
   transition: background-color 0.2s;
@@ -80,9 +80,9 @@ export const CountdownButton = styled.button<CountdownButtonProps>`
   border: 0;
   border-radius: 5px;
 
-  background: ${(props) => (props.isActive ? 'var(--white)' : 'var(--blue)')};
-  color: var(--white);
-  color: ${(props) => (props.isActive ? 'var(--title)' : 'var(--white)')};
+  background: ${(props) => (props.isActive ? 'var(--primary)' : 'var(--blue)')};
+  color: var(--primary);
+  color: ${(props) => (props.isActive ? 'var(--title)' : 'var(--primary)')};
   font-size: 1.25rem;
   font-weight: 600;
   transition: background-color 0.2s;
@@ -90,11 +90,11 @@ export const CountdownButton = styled.button<CountdownButtonProps>`
   &:not(:disabled):hover {
     background: ${(props) =>
       props.isActive ? 'var(--red)' : 'var(--blue-dark)'};
-    color: ${(props) => props.isActive && 'var(--white)'};
+    color: ${(props) => props.isActive && 'var(--primary)'};
   }
 
   &:disabled {
-    background: var(--white);
+    background: var(--primary);
     color: var(--text);
     cursor: not-allowed;
   }
