@@ -6,11 +6,12 @@ import { Profile } from '../components/Profile';
 import { CompletedChallenges } from '../components/CompletedChallenges';
 import { Countdown } from '../components/Countdown';
 import { ChallengeBox } from '../components/ChallengeBox';
+import { Sidebar } from '../components/Sidebar';
 
 import { CountdownProvider } from '../contexts/CountdownContext';
 
 import { ChallengesProvider } from '../contexts/ChallengesContext';
-import { Container } from '../styles/homeStyles';
+import { Container, Content } from '../styles/homeStyles';
 
 interface HomeProps {
   level: number;
@@ -26,24 +27,27 @@ export default function Home(props: HomeProps) {
       challengesCompleted={props.challengesCompleted}
     >
       <Container>
-        <Head>
-          <title>Início | move.it</title>
-        </Head>
+        <Sidebar />
+        <Content>
+          <Head>
+            <title>Início | move.it</title>
+          </Head>
 
-        <ExperienceBar />
+          <ExperienceBar />
 
-        <CountdownProvider>
-          <section>
-            <div>
-              <Profile />
-              <CompletedChallenges />
-              <Countdown />
-            </div>
-            <div>
-              <ChallengeBox />
-            </div>
-          </section>
-        </CountdownProvider>
+          <CountdownProvider>
+            <section>
+              <div>
+                <Profile />
+                <CompletedChallenges />
+                <Countdown />
+              </div>
+              <div>
+                <ChallengeBox />
+              </div>
+            </section>
+          </CountdownProvider>
+        </Content>
       </Container>
     </ChallengesProvider>
   );

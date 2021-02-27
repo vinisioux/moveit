@@ -25,11 +25,11 @@ export const Container = styled.div`
     }
 
     span:first-child {
-      border-right: 1px solid #f0f1f3;
+      border-right: 1px solid var(--background);
     }
 
     span:last-child {
-      border-left: 1px solid #f0f1f3;
+      border-left: 1px solid var(--background);
     }
   }
 
