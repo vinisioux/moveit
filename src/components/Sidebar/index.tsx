@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import Switch from 'react-switch';
 import { FiHome, FiAward, FiPower } from 'react-icons/fi';
 import { signOut } from 'next-auth/client';
+import { useRouter } from 'next/router';
 
 import { ThemeContext as StyledThemeContext } from 'styled-components';
 import { ThemeContext } from '../../contexts/ThemeContext';
@@ -11,6 +12,7 @@ import { Container } from './styles';
 function Sidebar() {
   const { toggleTheme, theme } = useContext(ThemeContext);
   const { colors } = useContext(StyledThemeContext);
+  const router = useRouter();
 
   return (
     <Container>
@@ -22,10 +24,10 @@ function Sidebar() {
       </header>
 
       <div>
-        <button>
+        <button onClick={() => router.push('/home')}>
           <FiHome />
         </button>
-        <button>
+        <button onClick={() => router.push('/leaderboard')}>
           <FiAward />
         </button>
       </div>
