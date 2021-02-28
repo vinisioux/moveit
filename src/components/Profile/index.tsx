@@ -9,7 +9,7 @@ export function Profile() {
   const { level } = useContext(ChallengesContext);
   const [session] = useSession();
 
-  console.log(session);
+  console.log('session ->', session);
 
   return (
     <Container>
