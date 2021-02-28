@@ -21,6 +21,9 @@ export const GlobalStyle = createGlobalStyle`
     --blue-dark: ${(props) => props.theme.colors.blueDark};
     --blue-twitter: ${(props) => props.theme.colors.blueTwitter};
     --primary: ${(props) => props.theme.colors.primary};
+    --blue01: ${(props) => props.theme.colors.blue01};
+    --blue02: ${(props) => props.theme.colors.blue02};
+    --textBlue: ${(props) => props.theme.colors.textBlue};
   }
 
   @media(max-width: 1080px) {
