@@ -1,22 +1,22 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
+import { useSession } from 'next-auth/client';
+
 import { ChallengesContext } from '../../contexts/ChallengesContext';
 
 import { Container } from './styles';
 
 export function Profile() {
   const { level } = useContext(ChallengesContext);
+  const [session] = useSession();
 
   return (
     <Container>
-      <img
-        src='https://avatars.githubusercontent.com/u/36283335?s=460&u=5cb01d7f72a210ab2f0a6fe4f5afc746af1a4d36&v=4'
-        alt='Vinicius'
-      />
+      <img src={session.user.image} alt={session.user.name} />
 
       <div>
-        <strong>Vinicius Henrique</strong>
+        <strong>{session.user.name}</strong>
         <p>
-          <img src='icons/level.svg' alt='Level' />
+          <img src="icons/level.svg" alt="Level" />
           Level {level}
         </p>
       </div>
