@@ -39,30 +39,6 @@ export const Container = styled.div`
   }
 `;
 
-export const CountdownButton2 = styled.button`
-  width: 100%;
-  height: 5rem;
-
-  margin-top: 2rem;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border: 0;
-  border-radius: 5px;
-
-  background: var(--blue);
-  color: var(--primary);
-  font-size: 1.25rem;
-  font-weight: 600;
-  transition: background-color 0.2s;
-
-  &:hover {
-    background: var(--blue-dark);
-  }
-`;
-
 interface CountdownButtonProps {
   isActive?: boolean;
 }

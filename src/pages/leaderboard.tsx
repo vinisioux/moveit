@@ -38,8 +38,14 @@ export default function Leaderboard() {
                       </span>
                     </div>
                   </td>
-                  <td>{user.challenges} completados</td>
-                  <td>{user.experience} xp</td>
+                  <td className="challenges">
+                    <span>{user.challenges}</span>
+                    <span> completados</span>
+                  </td>
+                  <td className="experience">
+                    <span>{user.experience}</span>
+                    <span> xp</span>
+                  </td>
                 </tr>
               ))}
             </tbody>

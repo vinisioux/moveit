@@ -20,6 +20,7 @@ export const Content = styled.div`
   header {
     h1 {
       font-size: 2.4rem;
+      color: var(--title);
     }
   }
 `;
@@ -87,6 +88,13 @@ export const TableContainer = styled.section`
                 margin-left: 5px;
               }
             }
+          }
+        }
+
+        .challenges,
+        .experience {
+          span:first-child {
+            color: var(--blue-twitter);
           }
         }
 
