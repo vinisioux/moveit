@@ -9,6 +9,8 @@ export function Profile() {
   const { level } = useContext(ChallengesContext);
   const [session] = useSession();
 
+  console.log(session);
+
   return (
     <Container>
       <img src={session?.user.image} alt={session?.user.name} />

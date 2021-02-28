@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Sidebar } from '../components/Sidebar';
 
 import {
@@ -6,7 +7,25 @@ import {
   TableContainer,
 } from '../styles/pages/leaderboardStyles';
 
+interface User {
+  position?: number;
+  name: string;
+  avatar: string;
+  challenges: number;
+  level: number;
+  experience: number;
+}
+
 export default function Leaderboard() {
+  const [users, setUsers] = useState<User[]>([] as User[]);
+
+  useEffect(() => {
+    function loadUsers() {
+      setUsers(usersData);
+    }
+    loadUsers();
+  }, [users]);
+
   return (
     <Container>
       <Sidebar />
@@ -25,9 +44,9 @@ export default function Leaderboard() {
               </tr>
             </thead>
             <tbody>
-              {users.map((user) => (
-                <tr key={user.position}>
-                  <td>{user.position}</td>
+              {users.map((user, position) => (
+                <tr key={String(position + 1)}>
+                  <td>{position + 1}</td>
                   <td className="user">
                     <img src={user.avatar} alt={user.name} />
                     <div>
@@ -65,9 +84,8 @@ export default function Leaderboard() {
   );
 }
 
-const users = [
+const usersData: User[] = [
   {
-    position: 1,
     name: 'Vinicius Henrique',
     avatar:
       'https://avatars.githubusercontent.com/u/36283335?s=460&u=5cb01d7f72a210ab2f0a6fe4f5afc746af1a4d36&v=4',
@@ -76,7 +94,6 @@ const users = [
     experience: 898,
   },
   {
-    position: 2,
     name: 'Vinicius',
     avatar:
       'https://avatars.githubusercontent.com/u/36283335?s=460&u=5cb01d7f72a210ab2f0a6fe4f5afc746af1a4d36&v=4',
@@ -85,7 +102,6 @@ const users = [
     experience: 54,
   },
   {
-    position: 3,
     name: 'Henrique',
     challenges: 23,
     avatar:
@@ -94,15 +110,14 @@ const users = [
     experience: 23,
   },
   {
-    position: 4,
     name: 'Vinicius Leonardo',
     challenges: 45,
     avatar:
       'https://avatars.githubusercontent.com/u/36283335?s=460&u=5cb01d7f72a210ab2f0a6fe4f5afc746af1a4d36&v=4',
     experience: 43,
+    level: 1,
   },
   {
-    position: 5,
     name: 'Leonardo Henrique',
     challenges: 13,
     avatar:

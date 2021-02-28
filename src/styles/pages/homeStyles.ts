@@ -51,7 +51,7 @@ export const FormContainer = styled.div`
     }
 
     span {
-      color: var(--blueText);
+      color: var(--white);
     }
   }
 `;
@@ -72,6 +72,7 @@ export const Form = styled.form`
 
     &::placeholder {
       color: var(--textBlue);
+      font-size: 1.2rem;
     }
   }
 
