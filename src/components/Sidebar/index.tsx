@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import Switch from 'react-switch';
-import { FiHome, FiAward } from 'react-icons/fi';
+import { FiHome, FiAward, FiPower } from 'react-icons/fi';
+import { signOut } from 'next-auth/client';
 
 import { ThemeContext as StyledThemeContext } from 'styled-components';
 import { ThemeContext } from '../../contexts/ThemeContext';
@@ -13,7 +14,12 @@ function Sidebar() {
 
   return (
     <Container>
-      <img src="icons/logo.svg" alt="Move.it" />
+      <header>
+        <img src="icons/logo.svg" alt="Move.it" />
+        <button onClick={() => signOut()}>
+          <FiPower />
+        </button>
+      </header>
 
       <div>
         <button>

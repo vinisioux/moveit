@@ -12,6 +12,21 @@ export const Container = styled.div`
 
   padding: 32px 32px;
 
+  header {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+
+    button {
+      margin-top: 0.5rem;
+
+      svg {
+        color: var(--text);
+      }
+    }
+  }
+
   div {
     display: flex;
     flex-direction: column;

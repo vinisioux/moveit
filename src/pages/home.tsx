@@ -1,5 +1,7 @@
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import { GetServerSideProps } from 'next';
+import { useSession } from 'next-auth/client';
 
 import { ExperienceBar } from '../components/ExperienceBar';
 import { Profile } from '../components/Profile';
@@ -12,6 +14,7 @@ import { CountdownProvider } from '../contexts/CountdownContext';
 
 import { ChallengesProvider } from '../contexts/ChallengesContext';
 import { Container, Content } from '../styles/pages/homePageStyles';
+import { useEffect } from 'react';
 
 interface HomePageProps {
   level: number;
@@ -20,6 +23,14 @@ interface HomePageProps {
 }
 
 export default function HomePage(props: HomePageProps) {
+  const [session] = useSession();
+
+  const router = useRouter();
+
+  useEffect(() => {
+    !session && router.push('/');
+  }, [session, router]);
+
   return (
     <ChallengesProvider
       level={props.level}
