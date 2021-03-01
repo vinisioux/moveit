@@ -18,7 +18,6 @@ export const RightSide = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* min-width: 20%; */
 
   > img {
     margin-bottom: 5rem;
@@ -57,35 +56,46 @@ export const FormContainer = styled.div`
 `;
 
 export const Form = styled.form`
+  height: 100%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 5rem;
-
-  input {
-    height: 100%;
-    border-radius: 5px 0 0 5px;
-    border: 0;
-    background: linear-gradient(90deg, #4953b8 0%, rgba(73, 83, 184, 0.2) 100%);
-    padding-left: 1.2rem;
-    color: var(--white);
-
-    &::placeholder {
-      color: var(--textBlue);
-      font-size: 1.2rem;
-    }
-  }
 
   button {
-    background: var(--blue02);
     height: 100%;
-    width: 4.8rem;
-    border-radius: 0 5px 5px 0;
+    border-radius: 5px;
+    border: 0;
+    background: linear-gradient(90deg, #4953b8 0%, rgba(73, 83, 184, 0.2) 100%);
+    padding: 1.2rem;
+    color: var(--white);
+    font-size: 1.2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: filter 0.2s;
+
+    main.informations {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      span {
+        margin-left: 1rem;
+        text-align: left;
+      }
+    }
 
     svg {
       color: var(--white);
       height: 2.4rem;
       width: 2.4rem;
+      margin-left: 1rem;
+    }
+
+    &:hover {
+      filter: brightness(0.9);
     }
   }
 `;
