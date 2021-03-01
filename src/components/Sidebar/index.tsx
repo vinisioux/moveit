@@ -18,9 +18,19 @@ function Sidebar() {
     <Container>
       <header>
         <img src="icons/logo.svg" alt="Move.it" />
-        <button onClick={() => signOut()}>
-          <FiPower />
-        </button>
+        <Switch
+          className="toggle-theme-button"
+          onChange={toggleTheme}
+          checked={theme.title === 'dark'}
+          checkedIcon={false}
+          uncheckedIcon={false}
+          height={10}
+          width={40}
+          offColor={colors.title}
+          offHandleColor={colors.primary}
+          onColor={colors.grayLine}
+          onHandleColor={colors.primary}
+        />
       </header>
 
       <div>
@@ -32,18 +42,9 @@ function Sidebar() {
         </button>
       </div>
 
-      <Switch
-        onChange={toggleTheme}
-        checked={theme.title === 'dark'}
-        checkedIcon={false}
-        uncheckedIcon={false}
-        height={10}
-        width={40}
-        offColor={colors.title}
-        offHandleColor={colors.primary}
-        onColor={colors.grayLine}
-        onHandleColor={colors.primary}
-      />
+      <button onClick={() => signOut()}>
+        <FiPower />
+      </button>
     </Container>
   );
 }

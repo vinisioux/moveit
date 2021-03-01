@@ -18,12 +18,8 @@ export const Container = styled.div`
     /* align-items: center; */
     justify-content: center;
 
-    button {
-      margin-top: 0.5rem;
-
-      svg {
-        color: var(--text);
-      }
+    .toggle-theme-button {
+      margin-top: 1.5rem;
     }
   }
 
@@ -37,6 +33,12 @@ export const Container = styled.div`
       svg {
         color: var(--text);
       }
+    }
+  }
+
+  button {
+    svg {
+      color: var(--text);
     }
   }
 `;
