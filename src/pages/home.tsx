@@ -1,7 +1,9 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { GetServerSideProps } from 'next';
-import { useSession } from 'next-auth/client';
+import { getSession, useSession } from 'next-auth/client';
+
+import prisma from '../lib/prisma';
 
 import { ExperienceBar } from '../components/ExperienceBar';
 import { Profile } from '../components/Profile';
@@ -64,14 +66,30 @@ export default function HomePage(props: HomePageProps) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const { level, currentExperience, challengesCompleted } = ctx.req.cookies;
+export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
+  const session = await getSession({ req });
+  if (!session) {
+    res.statusCode = 403;
+    return { props: { userStatus: {} } };
+  }
+
+  const userAccessToken = await prisma.session.findUnique({
+    where: {
+      accessToken: session.accessToken,
+    },
+  });
+
+  const user = await prisma.user.findUnique({
+    where: {
+      id: userAccessToken.userId,
+    },
+  });
 
   return {
     props: {
-      level: Number(level),
-      currentExperience: Number(currentExperience),
-      challengesCompleted: Number(challengesCompleted),
+      level: user.level,
+      currentExperience: user.experience,
+      challengesCompleted: user.challenges,
     },
   };
 };

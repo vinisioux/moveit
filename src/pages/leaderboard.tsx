@@ -19,6 +19,7 @@ interface User {
   challenges: number;
   level: number;
   experience: number;
+  totalExperience: number;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -68,7 +69,7 @@ export default function Leaderboard(props: LeaderboardProps) {
                     <span> completados</span>
                   </td>
                   <td className="experience">
-                    <span>{user.experience}</span>
+                    <span>{user.totalExperience}</span>
                     <span> xp</span>
                   </td>
                 </tr>
@@ -90,69 +91,11 @@ export default function Leaderboard(props: LeaderboardProps) {
   );
 }
 
-// const usersData: User[] = [
-//   {
-//     name: 'Vinicius Henrique',
-//     image:
-//       'https://avatars.githubusercontent.com/u/36283335?s=460&u=5cb01d7f72a210ab2f0a6fe4f5afc746af1a4d36&v=4',
-//     level: 53,
-//     challenges: 123,
-//     experience: 898,
-//     createdAt: new Date(),
-//     updatedAt: new Date(),
-//     id: 1,
-//   },
-//   {
-//     name: 'Vinicius',
-//     image:
-//       'https://avatars.githubusercontent.com/u/36283335?s=460&u=5cb01d7f72a210ab2f0a6fe4f5afc746af1a4d36&v=4',
-//     level: 53,
-//     challenges: 43,
-//     experience: 54,
-//     createdAt: new Date(),
-//     updatedAt: new Date(),
-//     id: 2,
-//   },
-//   {
-//     name: 'Henrique',
-//     challenges: 23,
-//     image:
-//       'https://avatars.githubusercontent.com/u/36283335?s=460&u=5cb01d7f72a210ab2f0a6fe4f5afc746af1a4d36&v=4',
-//     level: 53,
-//     experience: 23,
-//     createdAt: new Date(),
-//     updatedAt: new Date(),
-//     id: 3,
-//   },
-//   {
-//     name: 'Vinicius Leonardo',
-//     challenges: 45,
-//     image:
-//       'https://avatars.githubusercontent.com/u/36283335?s=460&u=5cb01d7f72a210ab2f0a6fe4f5afc746af1a4d36&v=4',
-//     experience: 43,
-//     createdAt: new Date(),
-//     updatedAt: new Date(),
-//     id: 4,
-//     level: 1,
-//   },
-//   {
-//     name: 'Leonardo Henrique',
-//     challenges: 13,
-//     image:
-//       'https://avatars.githubusercontent.com/u/36283335?s=460&u=5cb01d7f72a210ab2f0a6fe4f5afc746af1a4d36&v=4',
-//     level: 53,
-//     experience: 12,
-//     createdAt: new Date(),
-//     updatedAt: new Date(),
-//     id: 5,
-//   },
-// ];
-
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   const session = await getSession({ req });
   if (!session) {
     res.statusCode = 403;
-    return { props: { drafts: [] } };
+    return { props: { users: [] } };
   }
 
   const users = await prisma.user.findMany({
