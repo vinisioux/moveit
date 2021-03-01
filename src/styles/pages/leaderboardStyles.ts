@@ -10,12 +10,34 @@ export const Container = styled.div`
 export const Content = styled.div`
   flex: 1;
   height: 100vh;
-  max-width: 960px;
+  width: 100%;
   margin: 0 auto;
   padding: 2.5rem 2rem;
 
   display: flex;
   flex-direction: column;
+
+  //
+  background-color: #222;
+  overflow-y: scroll;
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #777;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #444;
+    border-radius: 4px;
+  }
+
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #777 #444;
 
   header {
     h1 {
@@ -33,6 +55,7 @@ export const TableContainer = styled.section`
   flex-direction: column;
 
   table {
+    max-width: 960px;
     width: 100%;
     height: 100%;
     border-spacing: 0 0.8rem;

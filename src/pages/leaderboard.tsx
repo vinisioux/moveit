@@ -59,7 +59,7 @@ export default function Leaderboard({ users }: LeaderboardProps) {
                 </tr>
               </thead>
               <tbody>
-                {users.map((user: User, position) => (
+                {dataFake.map((user: User, position) => (
                   <tr key={String(position + 1)}>
                     <td>{position + 1}</td>
                     <td className="user">
@@ -99,6 +99,119 @@ export default function Leaderboard({ users }: LeaderboardProps) {
     </>
   );
 }
+
+const dataFake: User[] = [
+  {
+    id: 1,
+    challenges: 2,
+    experience: 12,
+    image:
+      'https://avatars.githubusercontent.com/u/36283335?s=460&u=5cb01d7f72a210ab2f0a6fe4f5afc746af1a4d36&v=4',
+    level: 4,
+    name: 'vinicius',
+    totalExperience: 12312,
+  },
+  {
+    id: 2,
+    challenges: 2,
+    experience: 12,
+    image:
+      'https://avatars.githubusercontent.com/u/36283335?s=460&u=5cb01d7f72a210ab2f0a6fe4f5afc746af1a4d36&v=4',
+    level: 4,
+    name: 'vinicius',
+    totalExperience: 12312,
+  },
+  {
+    id: 3,
+    challenges: 2,
+    experience: 12,
+    image:
+      'https://avatars.githubusercontent.com/u/36283335?s=460&u=5cb01d7f72a210ab2f0a6fe4f5afc746af1a4d36&v=4',
+    level: 4,
+    name: 'vinicius',
+    totalExperience: 12312,
+  },
+  {
+    id: 4,
+    challenges: 2,
+    experience: 12,
+    image:
+      'https://avatars.githubusercontent.com/u/36283335?s=460&u=5cb01d7f72a210ab2f0a6fe4f5afc746af1a4d36&v=4',
+    level: 4,
+    name: 'vinicius',
+    totalExperience: 12312,
+  },
+  {
+    id: 5,
+    challenges: 2,
+    experience: 12,
+    image:
+      'https://avatars.githubusercontent.com/u/36283335?s=460&u=5cb01d7f72a210ab2f0a6fe4f5afc746af1a4d36&v=4',
+    level: 4,
+    name: 'vinicius',
+    totalExperience: 12312,
+  },
+  {
+    id: 6,
+    challenges: 2,
+    experience: 12,
+    image:
+      'https://avatars.githubusercontent.com/u/36283335?s=460&u=5cb01d7f72a210ab2f0a6fe4f5afc746af1a4d36&v=4',
+    level: 4,
+    name: 'vinicius',
+    totalExperience: 12312,
+  },
+  {
+    id: 7,
+    challenges: 2,
+    experience: 12,
+    image:
+      'https://avatars.githubusercontent.com/u/36283335?s=460&u=5cb01d7f72a210ab2f0a6fe4f5afc746af1a4d36&v=4',
+    level: 4,
+    name: 'vinicius',
+    totalExperience: 12312,
+  },
+  {
+    id: 8,
+    challenges: 2,
+    experience: 12,
+    image:
+      'https://avatars.githubusercontent.com/u/36283335?s=460&u=5cb01d7f72a210ab2f0a6fe4f5afc746af1a4d36&v=4',
+    level: 4,
+    name: 'vinicius',
+    totalExperience: 12312,
+  },
+  {
+    id: 9,
+    challenges: 2,
+    experience: 12,
+    image:
+      'https://avatars.githubusercontent.com/u/36283335?s=460&u=5cb01d7f72a210ab2f0a6fe4f5afc746af1a4d36&v=4',
+    level: 4,
+    name: 'vinicius',
+    totalExperience: 12312,
+  },
+  {
+    id: 10,
+    challenges: 2,
+    experience: 12,
+    image:
+      'https://avatars.githubusercontent.com/u/36283335?s=460&u=5cb01d7f72a210ab2f0a6fe4f5afc746af1a4d36&v=4',
+    level: 4,
+    name: 'vinicius',
+    totalExperience: 12312,
+  },
+  {
+    id: 11,
+    challenges: 2,
+    experience: 12,
+    image:
+      'https://avatars.githubusercontent.com/u/36283335?s=460&u=5cb01d7f72a210ab2f0a6fe4f5afc746af1a4d36&v=4',
+    level: 4,
+    name: 'vinicius',
+    totalExperience: 12312,
+  },
+];
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   const session = await getSession({ req });
