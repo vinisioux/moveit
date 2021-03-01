@@ -35,10 +35,10 @@ function Sidebar() {
 
       <div>
         <button onClick={() => router.push('/home')}>
-          <FiHome />
+          <FiHome className="home-svg" />
         </button>
         <button onClick={() => router.push('/leaderboard')}>
-          <FiAward />
+          <FiAward className="medal-svg" />
         </button>
       </div>
 

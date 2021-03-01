@@ -32,6 +32,15 @@ export const Container = styled.div`
 
       svg {
         color: var(--text);
+        transition: color 0.1s;
+
+        &:hover.home-svg {
+          color: var(--blue);
+        }
+
+        &:hover.medal-svg {
+          color: var(--green);
+        }
       }
     }
   }
@@ -39,6 +48,11 @@ export const Container = styled.div`
   button {
     svg {
       color: var(--text);
+      transition: color 0.1s;
+
+      &:hover {
+        color: var(--red);
+      }
     }
   }
 `;
