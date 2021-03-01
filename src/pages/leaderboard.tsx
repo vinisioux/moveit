@@ -2,6 +2,7 @@ import { GetServerSideProps } from 'next';
 import { getSession, useSession } from 'next-auth/client';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 import prisma from '../lib/prisma';
 
@@ -37,49 +38,53 @@ export default function Leaderboard({ users }: LeaderboardProps) {
   }, [session, router]);
 
   return (
-    <Container>
-      <Sidebar />
-      <Content>
-        <header>
-          <h1>Leaderboard</h1>
-        </header>
-        <TableContainer>
-          <table>
-            <thead>
-              <tr>
-                <th>POSIÇÃO</th>
-                <th>USUÁRIO</th>
-                <th>DESAFIOS</th>
-                <th>EXPERIÊNCIA</th>
-              </tr>
-            </thead>
-            <tbody>
-              {users.map((user: User, position) => (
-                <tr key={String(position + 1)}>
-                  <td>{position + 1}</td>
-                  <td className="user">
-                    <img src={user.image} alt={user.name} />
-                    <div>
-                      <strong>{user.name}</strong>
-                      <span>
-                        <img src="/icons/level.svg" alt="Level" />
-                        <span>Level {user.level}</span>
-                      </span>
-                    </div>
-                  </td>
-                  <td className="challenges">
-                    <span>{user.challenges}</span>
-                    <span> completados</span>
-                  </td>
-                  <td className="experience">
-                    <span>{user.totalExperience}</span>
-                    <span> xp</span>
-                  </td>
+    <>
+      <Head>
+        <title>Ranking | move.it</title>
+      </Head>
+      <Container>
+        <Sidebar />
+        <Content>
+          <header>
+            <h1>Ranking</h1>
+          </header>
+          <TableContainer>
+            <table>
+              <thead>
+                <tr>
+                  <th>POSIÇÃO</th>
+                  <th>USUÁRIO</th>
+                  <th>DESAFIOS</th>
+                  <th>EXPERIÊNCIA</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-          {/* <PagesButtonsContainer>
+              </thead>
+              <tbody>
+                {users.map((user: User, position) => (
+                  <tr key={String(position + 1)}>
+                    <td>{position + 1}</td>
+                    <td className="user">
+                      <img src={user.image} alt={user.name} />
+                      <div>
+                        <strong>{user.name}</strong>
+                        <span>
+                          <img src="/icons/level.svg" alt="Level" />
+                          <span>Level {user.level}</span>
+                        </span>
+                      </div>
+                    </td>
+                    <td className="challenges">
+                      <span>{user.challenges}</span>
+                      <span> completados</span>
+                    </td>
+                    <td className="experience">
+                      <span>{user.totalExperience}</span>
+                      <span> xp</span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            {/* <PagesButtonsContainer>
             <Pagination
               activePage={currentPage}
               itemsCountPerPage={limitPerPage}
@@ -88,9 +93,10 @@ export default function Leaderboard({ users }: LeaderboardProps) {
               onChange={handleChangePage}
             />
           </PagesButtonsContainer> */}
-        </TableContainer>
-      </Content>
-    </Container>
+          </TableContainer>
+        </Content>
+      </Container>
+    </>
   );
 }
 
