@@ -53,6 +53,15 @@ model User {
   @@map("users")
 }
 
+model Challenge {
+  id          Int    @id @default(autoincrement())
+  type        String @db.VarChar(255)
+  description String @db.VarChar(255)
+  amount      Int
+
+  @@map("challenges")
+}
+
 model VerificationRequest {
   id         Int      @id @default(autoincrement())
   identifier String   @db.VarChar(255)
