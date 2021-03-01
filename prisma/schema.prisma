@@ -44,8 +44,6 @@ model User {
   email           String?   @unique @db.VarChar(255)
   emailVerified   DateTime? @map("email_verified") @db.Timestamptz(6)
   image           String?
-  createdAt       DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
-  updatedAt       DateTime  @default(now()) @map("updated_at") @db.Timestamptz(6)
   experience      Int       @default(0)
   level           Int       @default(1)
   challenges      Int       @default(0)

@@ -1,5 +1,7 @@
 import { GetServerSideProps } from 'next';
-import { getSession } from 'next-auth/client';
+import { getSession, useSession } from 'next-auth/client';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 import prisma from '../lib/prisma';
 
@@ -10,7 +12,6 @@ import {
   Content,
   TableContainer,
 } from '../styles/pages/leaderboardStyles';
-import { useState } from 'react';
 
 interface User {
   id: number;
@@ -20,18 +21,20 @@ interface User {
   level: number;
   experience: number;
   totalExperience: number;
-  createdAt: Date;
-  updatedAt: Date;
 }
 
 interface LeaderboardProps {
   users: User[];
 }
 
-export default function Leaderboard(props: LeaderboardProps) {
-  const [users] = useState<User[]>(() => {
-    return JSON.parse(String(props.users));
-  });
+export default function Leaderboard({ users }: LeaderboardProps) {
+  const [session] = useSession();
+
+  const router = useRouter();
+
+  useEffect(() => {
+    !session && router.push('/');
+  }, [session, router]);
 
   return (
     <Container>
@@ -98,13 +101,13 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
     return { props: { users: [] } };
   }
 
-  const users = await prisma.user.findMany({
+  const users = (await prisma.user.findMany({
     orderBy: { experience: 'desc' },
-  });
+  })) as User[];
 
   return {
     props: {
-      users: JSON.stringify(users),
+      users,
     },
   };
 };
