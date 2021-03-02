@@ -18,7 +18,7 @@ export const Content = styled.div`
   flex-direction: column;
 
   //
-  background-color: #222;
+  background-color: var(--background);
   overflow-y: scroll;
 
   ::-webkit-scrollbar {

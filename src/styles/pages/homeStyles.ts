@@ -64,6 +64,7 @@ export const Form = styled.form`
 
   button {
     height: 100%;
+    width: 100%;
     border-radius: 5px;
     border: 0;
     background: linear-gradient(90deg, #4953b8 0%, rgba(73, 83, 184, 0.2) 100%);
@@ -97,5 +98,9 @@ export const Form = styled.form`
     &:hover {
       filter: brightness(0.9);
     }
+  }
+
+  & + form {
+    margin-top: 0.5rem;
   }
 `;

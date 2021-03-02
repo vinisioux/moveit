@@ -99,7 +99,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   }
 
   const users = (await prisma.user.findMany({
-    orderBy: { experience: 'desc' },
+    orderBy: { totalExperience: 'desc' },
   })) as User[];
 
   return {

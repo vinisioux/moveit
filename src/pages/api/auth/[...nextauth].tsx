@@ -12,6 +12,10 @@ export default (req, res) =>
         clientId: process.env.GITHUB_ID,
         clientSecret: process.env.GITHUB_SECRET,
       }),
+      Providers.Discord({
+        clientId: process.env.DISCORD_CLIENT_ID,
+        clientSecret: process.env.DISCORD_CLIENT_SECRET,
+      }),
     ],
     debug: process.env.NODE_ENV === 'development',
     jwt: {

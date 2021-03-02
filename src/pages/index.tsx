@@ -3,6 +3,7 @@ import { FormEvent, useCallback, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { signIn, useSession } from 'next-auth/client';
 import { FiChevronRight } from 'react-icons/fi';
+import { FaDiscord } from 'react-icons/fa';
 
 import {
   Container,
@@ -27,6 +28,12 @@ export default function Home() {
     await signIn('github');
   }, []);
 
+  const handleSubmitDiscord = useCallback(async (event: FormEvent) => {
+    event.preventDefault();
+
+    await signIn('discord');
+  }, []);
+
   return (
     <>
       <Head>
@@ -43,9 +50,16 @@ export default function Home() {
                 <button type="submit">
                   <main className="informations">
                     <img src="/github.svg" alt="Github" />
-                    <span>
-                      Faça login com seu Github <br /> para começar
-                    </span>
+                    <span>Faça login o Github</span>
+                  </main>
+                  <FiChevronRight />
+                </button>
+              </Form>
+              <Form onSubmit={handleSubmitDiscord}>
+                <button type="submit">
+                  <main className="informations">
+                    <FaDiscord size={20} color="#B3B9FF" />
+                    <span>Faça login o Discord</span>
                   </main>
                   <FiChevronRight />
                 </button>
