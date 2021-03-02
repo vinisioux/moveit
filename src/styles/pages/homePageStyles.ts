@@ -1,8 +1,16 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const Content = styled.div`
+  flex: 1;
   height: 100vh;
-  max-width: 992px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 2.5rem 2rem;
 

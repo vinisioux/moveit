@@ -1,62 +1,73 @@
 import Head from 'next/head';
-import { GetServerSideProps } from 'next';
+import { FormEvent, useCallback, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { signIn, useSession } from 'next-auth/client';
+import { FiChevronRight } from 'react-icons/fi';
+import { FaDiscord } from 'react-icons/fa';
 
-import { ExperienceBar } from '../components/ExperienceBar';
-import { Profile } from '../components/Profile';
-import { CompletedChallenges } from '../components/CompletedChallenges';
-import { Countdown } from '../components/Countdown';
-import { ChallengeBox } from '../components/ChallengeBox';
+import {
+  Container,
+  LeftSide,
+  RightSide,
+  FormContainer,
+  Form,
+} from '../styles/pages/homeStyles';
 
-import { CountdownProvider } from '../contexts/CountdownContext';
+export default function Home() {
+  const [session] = useSession();
 
-import { ChallengesProvider } from '../contexts/ChallengesContext';
-import { Container } from '../styles/homeStyles';
+  const router = useRouter();
 
-interface HomeProps {
-  level: number;
-  currentExperience: number;
-  challengesCompleted: number;
-}
+  useEffect(() => {
+    !!session && router.push('/home');
+  }, [session, router]);
 
-export default function Home(props: HomeProps) {
+  const handleSubmit = useCallback(async (event: FormEvent) => {
+    event.preventDefault();
+
+    await signIn('github');
+  }, []);
+
+  const handleSubmitDiscord = useCallback(async (event: FormEvent) => {
+    event.preventDefault();
+
+    await signIn('discord');
+  }, []);
+
   return (
-    <ChallengesProvider
-      level={props.level}
-      currentExperience={props.currentExperience}
-      challengesCompleted={props.challengesCompleted}
-    >
+    <>
+      <Head>
+        <title>Move.it</title>
+      </Head>
       <Container>
-        <Head>
-          <title>Início | move.it</title>
-        </Head>
-
-        <ExperienceBar />
-
-        <CountdownProvider>
+        <LeftSide></LeftSide>
+        <RightSide>
+          <img src="/logo-white.svg" alt="Move.it" />
           <section>
-            <div>
-              <Profile />
-              <CompletedChallenges />
-              <Countdown />
-            </div>
-            <div>
-              <ChallengeBox />
-            </div>
+            <h1>Bem-vindo</h1>
+            <FormContainer>
+              <Form onSubmit={handleSubmit}>
+                <button type="submit">
+                  <main className="informations">
+                    <img src="/github.svg" alt="Github" />
+                    <span>Faça login o Github</span>
+                  </main>
+                  <FiChevronRight />
+                </button>
+              </Form>
+              <Form onSubmit={handleSubmitDiscord}>
+                <button type="submit">
+                  <main className="informations">
+                    <FaDiscord size={20} color="#B3B9FF" />
+                    <span>Faça login o Discord</span>
+                  </main>
+                  <FiChevronRight />
+                </button>
+              </Form>
+            </FormContainer>
           </section>
-        </CountdownProvider>
+        </RightSide>
       </Container>
-    </ChallengesProvider>
+    </>
   );
 }
-
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const { level, currentExperience, challengesCompleted } = ctx.req.cookies;
-
-  return {
-    props: {
-      level: Number(level),
-      currentExperience: Number(currentExperience),
-      challengesCompleted: Number(challengesCompleted),
-    },
-  };
-};

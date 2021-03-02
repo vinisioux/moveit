@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -9,17 +10,21 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   :root {
-    --white: #fff;
-    --background: #f2f3f5;
-    --gray-line: #dcdde0;
-    --text: #666666;
-    --text-highlight: #b3b9ff;
-    --title: #2e384d;
-    --red: #e83f5b;
-    --green: #4cd62b;
-    --blue: #5965e0;
-    --blue-dark: #4953b8;
-    --blue-twitter: #2aa9e0;
+    --white: ${(props) => props.theme.colors.white};
+    --background: ${(props) => props.theme.colors.background};
+    --gray-line: ${(props) => props.theme.colors.grayLine};
+    --text: ${(props) => props.theme.colors.text};
+    --text-highlight: ${(props) => props.theme.colors.textHighlight};
+    --title: ${(props) => props.theme.colors.title};
+    --red: ${(props) => props.theme.colors.red};
+    --green: ${(props) => props.theme.colors.green};
+    --blue: ${(props) => props.theme.colors.blue};
+    --blue-dark: ${(props) => props.theme.colors.blueDark};
+    --blue-twitter: ${(props) => props.theme.colors.blueTwitter};
+    --primary: ${(props) => props.theme.colors.primary};
+    --blue01: ${(props) => props.theme.colors.blue01};
+    --blue02: ${(props) => props.theme.colors.blue02};
+    --textBlue: ${(props) => props.theme.colors.textBlue};
   }
 
   @media(max-width: 1080px) {
@@ -44,6 +49,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   button {
+    background: none;
+    border: 0;
     cursor: pointer;
   }
 
